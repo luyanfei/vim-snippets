@@ -1,10 +1,23 @@
 extends c
+## Main
+# main(void)
+snippet cmain
+	#include <iostream>
+	using namespace std;
 
+	int main()
+	{
+		${0}
+		return 0;
+	}
+##
 ##
 ## Preprocessor
 # #include <...>
 snippet incc
 	#include <${1:iostream}>
+snippet incv
+	#include <${1:vector}>
 snippet binc
 	#include <boost/${1:shared_ptr}.hpp>
 ##
@@ -182,7 +195,6 @@ snippet fori
 	for (int ${2:i} = 0; $2 < ${1:count}; $2${3:++}) {
 		${4}
 	}
-
 # foreach
 snippet fore
 	for (${1:auto} ${2:i} : ${3:container}) {
