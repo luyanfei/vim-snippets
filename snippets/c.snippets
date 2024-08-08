@@ -390,3 +390,16 @@ snippet asm
 	:
 	:
 	);
+
+snippet sd
+	scanf("%d", &${0:n});
+snippet s2d
+	scanf("%d%d", &${1:m}, &${0:n});
+snippet wsd
+	while (scanf("%d", &${1:n}) == 1) {
+		${0}
+	}
+snippet pdn
+	printf("%d\n", ${0:n});
+snippet pd
+	printf("%d", ${0:n});
