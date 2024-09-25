@@ -33,7 +33,7 @@ snippet mainn
 # #include <...>
 snippet incc
 	#include <${1:iostream}>
-snippet inc
+snippet incv
 	#include <${1:vector}>
 snippet binc
 	#include <boost/${1:shared_ptr}.hpp>
@@ -300,3 +300,57 @@ snippet gtepar "GTest:add parameterized test"
 # GTest:instantiate parameterized test
 snippet gteparins "GTest:instantiate parameterized test"
 	INSTANTIATE_TEST_SUITE_P(${1:InstantiationName}, ${2:SuiteName}, ${0});
+
+snippet sedge "struct edge"
+	struct edge {
+		int to, next;
+		edge(int to, int next) : to(to), next(next) {}
+	};
+
+snippet sedgew "struct edge"
+	struct edge {
+		int to, next, w;
+		edge(int to, int next, int w) : to(to), next(next), w(w) {}
+	};
+
+snippet vi "vector<int>"
+	vector<int>
+
+snippet cgraph "class Graph"
+	class Edge {
+	public:
+		int to, next;
+		Edge(int to, int next) : to(to), next(next) {}
+	};
+
+	class Graph {
+		vector<int> head;
+		vector<Edge> edges;
+	public:
+		Graph(int n) : head(n + 1, -1) {}
+		void add_edge(int u, int v) {
+			edges.emplace_back(v, head[u]);
+			head[u] = edges.size() - 1;
+		}
+		${0}
+	};
+
+snippet cgraphw "class Graph"
+	class Edge {
+	public:
+		int to, next, w;
+		Edge(int to, int next, int w) : to(to), next(next), w(w) {}
+	};
+
+	class Graph {
+		vector<int> head;
+		vector<Edge> edges;
+	public:
+		Graph(int n) : head(n + 1, -1) {}
+		void add_edge(int u, int v, int w) {
+			edges.emplace_back(v, head[u], w);
+			head[u] = edges.size() - 1;
+		}
+		${0}
+	};
+
