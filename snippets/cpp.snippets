@@ -317,8 +317,7 @@ snippet vi "vector<int>"
 	vector<int>
 
 snippet cgraph "class Graph"
-	class Edge {
-	public:
+	struct Edge {
 		int to, next;
 		Edge(int to, int next) : to(to), next(next) {}
 	};
@@ -336,8 +335,7 @@ snippet cgraph "class Graph"
 	};
 
 snippet cgraphw "class Graph"
-	class Edge {
-	public:
+	struct Edge {
 		int to, next, w;
 		Edge(int to, int next, int w) : to(to), next(next), w(w) {}
 	};
